@@ -1,0 +1,10 @@
+# Extend Gitleaks' default rules with one that also flags AWS's published
+# example key (the default config allowlists keys ending in "EXAMPLE").
+[extend]
+useDefault = true
+
+[[rules]]
+id = "aws-access-key-id-incl-example"
+description = "AWS Access Key ID (including documentation example keys)"
+regex = '''\b(AKIA[A-Z2-7]{16})\b'''
+keywords = ["akia"]
